@@ -1,6 +1,6 @@
 # Grafana docker image
 
-This container builds a container with the latest master build of Grafana and datasource configuration via environment variables.
+Image  with the latest build of Grafana and datasource configuration via environment variables.
 
 
 ## Running your Grafana image
