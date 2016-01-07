@@ -33,5 +33,5 @@ docker run -d -p 3000:3000 \
     -e "DS_JSON_DATA=null" \
     -e "GF_SERVER_ROOT_URL=http://grafana.server.name" \
     -e "GF_SECURITY_ADMIN_PASSWORD=secret" \
-    konstantinj/grafana-docker
+    konjak/docker-grafana
 ```
