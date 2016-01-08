@@ -7,7 +7,7 @@ Image  with the latest build of Grafana and datasource configuration via environ
 
 Start your image binding the external port `3000`.
 
-   docker run -i -p 3000:3000 konstantinj/grafana-docker
+   docker run -i -p 3000:3000 konjak/grafana-docker
 
 Try it out, default admin user is admin/admin.
 
@@ -23,15 +23,16 @@ docker run -d -p 3000:3000 \
     -e "DS_TYPE=datasource type (CloudWatch, Graphite, InfluxDB, etc...)" \
     -e "DS_ACCESS=proxy or direct" \
     -e "DS_URL=datasource url" \
-    -e "DS_PASS=pass" \
+    -e "DS_PASSWORD=password" \
     -e "DS_USER=user" \
-    -e "DS_DB=dbname" \
-    -e "DS_AUTH=false" \
-    -e "DS_AUTH_USER=" \
-    -e "AUTH_PASS=" \
-    -e "DS_IS_DEFAULT=false" \
-    -e "DS_JSON_DATA=null" \
+    -e "DS_DATABASE=database" \
+    -e "DS_IS_DEFAULT=true" \
     -e "GF_SERVER_ROOT_URL=http://grafana.server.name" \
+    -e "GF_SECURITY_ADMIN_USER=admin" \
     -e "GF_SECURITY_ADMIN_PASSWORD=secret" \
+    -e "API_HOST=localhost" \
+    -e "API_PORT=3000" \
+    -e "API_USER=admin" \
+    -e "API_PASS=secret" \
     konjak/docker-grafana
 ```
