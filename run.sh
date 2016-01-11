@@ -44,6 +44,9 @@ if [ -f /datasource.json.tpl ]; then
   printf "added dashboards for dashboard.host.json and dashboard.docker.json to grafana...\n"
 
   kill -9 ${pid_grafana}
+
+  sed -i '/^\[auth\.proxy\]$/,/^\[/ s/^;enabled = false/enabled = true/' /etc/grafana/grafana.ini
+  sed -i '/^\[auth\.basic\]$/,/^\[/ s/^;enabled = true/enabled = false/' /etc/grafana/grafana.ini
 fi
 
 /usr/sbin/grafana-server ${grafana_params}
