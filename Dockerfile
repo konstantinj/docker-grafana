@@ -16,11 +16,13 @@ VOLUME ["/var/lib/grafana", "/var/log/grafana", "/etc/grafana"]
 
 EXPOSE 3000
 
-COPY datasource.json.tpl /datasource.json.tpl
-COPY run.sh /run.sh
-
 RUN git clone --depth=1 https://github.com/anryko/grafana-influx-dashboard.git \
  && cd ./grafana-influx-dashboard \
  && ./install.sh /usr/share/grafana
+
+COPY datasource.json.tpl /datasource.json.tpl
+COPY dashboard.host.json /dashboard.host.json
+COPY dashboard.docker.json /dashboard.docker.json
+COPY run.sh /run.sh
 
 CMD /run.sh
