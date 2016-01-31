@@ -1,21 +1,11 @@
-# Grafana docker image
+# Grafana Docker image
 
 Image  with the latest build of Grafana and datasource configuration via environment variables.
 [grafana-influx-dashboard](https://github.com/anryko/grafana-influx-dashboard) is included in this image.
 Furthermore 2 dashboards for monitoring the host and docker containers are added. These dashboards work with collectd metrics stored to an influxdb.
 Consider using [docker-collectd](https://github.com/konstantinj/docker-collectd) which is prodviding host and docker metrics.
 
-
-## Running your Grafana image
-
-Start your image binding the external port `3000`.
-
-   docker run -i -p 3000:3000 konjak/grafana-docker
-
-Try it out, default admin user is admin/admin.
-
-
-## Configuring your Grafana container
+## Usage
 
 All options defined in conf/grafana.ini can be overriden using environment variables.
 You can automatically add a datasource configuration via environment variables, example:
@@ -37,5 +27,5 @@ docker run -d -p 3000:3000 \
     -e "API_PORT=3000" \
     -e "API_USER=admin" \
     -e "API_PASS=secret" \
-    konjak/docker-grafana
+    konjak/grafana
 ```
