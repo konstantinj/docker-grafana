@@ -1,6 +1,8 @@
 # Grafana Docker image
 
-Image  with the latest build of Grafana and datasource configuration via environment variables.
+[![](https://badge.imagelayers.io/konjak/grafana:latest.svg)](https://imagelayers.io/?images=konjak/grafana:latest)
+
+Production ready Docker container with the latest build of Grafana and datasource configuration via environment variables.
 [grafana-influx-dashboard](https://github.com/anryko/grafana-influx-dashboard) is included in this image.
 Furthermore 2 dashboards for monitoring the host and docker containers are added. These dashboards work with collectd metrics stored to an influxdb.
 Consider using [docker-collectd](https://github.com/konstantinj/docker-collectd) which is prodviding host and docker metrics.
@@ -11,7 +13,8 @@ All options defined in conf/grafana.ini can be overriden using environment varia
 You can automatically add a datasource configuration via environment variables, example:
 
 ```
-docker run -d -p 3000:3000 \
+docker run \
+    -p 3000:3000 \
     -e "DS_NAME=datasource_name" \
     -e "DS_TYPE=datasource type (CloudWatch, Graphite, InfluxDB, etc...)" \
     -e "DS_ACCESS=proxy or direct" \
@@ -29,3 +32,7 @@ docker run -d -p 3000:3000 \
     -e "API_PASS=secret" \
     konjak/grafana
 ```
+
+## Status
+
+Production stable.
